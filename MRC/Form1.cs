@@ -9,6 +9,7 @@ namespace MRC
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2, 0);
         }
     }
 }

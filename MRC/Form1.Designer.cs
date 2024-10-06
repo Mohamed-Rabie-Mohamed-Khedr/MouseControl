@@ -36,9 +36,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
             ClientSize = new Size(120, 50);
+            ControlBox = false;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             TopMost = true;
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
