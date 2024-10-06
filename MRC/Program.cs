@@ -1,18 +1,18 @@
 using MRC;
 using Gma.System.MouseKeyHook;
 using System.Runtime.InteropServices;
-
 class Program
 {
     static byte speed = 11;
     static bool isRun = true;
     private static IKeyboardMouseEvents m_GlobalHook;
 
-    // ÇÓÊíÑÇÏ ÏÇáÉ áÊÍÑíß ÇáãÇæÓ
+    [DllImport("User32.dll")]
+    public static extern IntPtr GetDC(IntPtr hwnd);
+    
     [DllImport("user32.dll", SetLastError = true)]
     static extern bool SetCursorPos(int X, int Y);
 
-    // ÇÓÊíÑÇÏ ÏÇáÉ áãÍÇßÇÉ ÖÛØ ÒÑ ÇáãÇæÓ
     [DllImport("user32.dll")]
     static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
 
@@ -28,16 +28,25 @@ class Program
         m_GlobalHook.KeyUp += IsKeyUp;
         m_GlobalHook.KeyDown += IsKeyDown;
 
+        ThreadPool.QueueUserWorkItem(state => DrawOnScreen());
+
         Application.Run(new Form1());
+    }
+
+    static void DrawOnScreen()
+    {
+        while (true)
+        {
+            Graphics grap = Graphics.FromHdc(GetDC(IntPtr.Zero));
+            grap.FillRectangle(isRun ? Brushes.Green : Brushes.Red, new Rectangle(Screen.PrimaryScreen.Bounds.Width / 2, 0, 33, 22));
+            Thread.Sleep(200);
+            grap.Dispose();
+        }
     }
 
     static void IsKeyUp(object? sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.LControlKey)
-        {
-            isRun = !isRun;
-            Application.OpenForms[0].BackColor = isRun ? Color.Green : Color.White;
-        }
+        if (e.KeyCode == Keys.LControlKey) isRun = !isRun;
     }
 
     static void IsKeyDown(object? sender, KeyEventArgs e)

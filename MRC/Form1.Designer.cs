@@ -39,7 +39,6 @@
             Name = "Form1";
             Text = "Form1";
             TopMost = true;
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 
