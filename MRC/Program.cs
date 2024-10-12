@@ -1,15 +1,16 @@
 using MRC;
 using Gma.System.MouseKeyHook;
 using System.Runtime.InteropServices;
-
+using MRC.Properties;
+using System.Media;
 class Program
 {
     public static bool controlRoomIsRun;
     static byte speed = 11;
     static bool isRun = true;
     static Keys up = Keys.Up, down = Keys.Down, right = Keys.Right, left = Keys.Left, mouseLeft = Keys.Insert, mouseRight = Keys.End, dragAndDrop = Keys.RControlKey, onAndOff = Keys.LControlKey;
-    static string allKeys;
     static IKeyboardMouseEvents m_GlobalHook;
+    static SoundPlayer sound;
     const uint MOUSEEVENTF_LEFTDOWN = 0x0002;
     const uint MOUSEEVENTF_LEFTUP = 0x0004;
     const uint MOUSEEVENTF_RIGHTDOWN = 0x0008;
@@ -31,11 +32,16 @@ class Program
         m_GlobalHook = Hook.GlobalEvents();
         m_GlobalHook.KeyUp += IsKeyUp;
         m_GlobalHook.KeyDown += IsKeyDown;
+        ThreadPool.QueueUserWorkItem(state => {
+            Form1 form1 = new Form1();
+            form1.Show();
+            Thread.Sleep(5000);
+            form1.Dispose();
+        });
 
         if (File.Exists("save.txt")) KeysUpdate();
-        allKeys = $"{speed},{up},{down},{right},{left},{mouseRight},{mouseLeft},{dragAndDrop},{onAndOff}";
-
-        Application.Run(new Form1());
+        
+        Application.Run();
     }
 
     public static void KeysUpdate()
@@ -57,7 +63,8 @@ class Program
         if (e.KeyCode == onAndOff)
         {
             isRun = !isRun;
-            Application.OpenForms[0].BackColor = isRun ? Color.Green : Color.Red;
+            sound = isRun ? new SoundPlayer(Resources.ON) : new SoundPlayer(Resources.off);
+            sound.Play();
         }
     }
 
@@ -136,7 +143,7 @@ class Program
 
     public static string[] RaedData()
     {
-        return allKeys.Split(',');
+        return $"{speed},{up},{down},{right},{left},{mouseRight},{mouseLeft},{dragAndDrop},{onAndOff}".Split(',');
     }
 
     public static bool KeyState(int vKey)

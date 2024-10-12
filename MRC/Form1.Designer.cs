@@ -39,9 +39,9 @@
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(58, 46);
+            label1.Size = new Size(220, 46);
             label1.TabIndex = 0;
-            label1.Text = "F3";
+            label1.Text = "F3 - Settings";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
@@ -49,7 +49,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
-            ClientSize = new Size(46, 46);
+            ClientSize = new Size(220, 46);
             ControlBox = false;
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;

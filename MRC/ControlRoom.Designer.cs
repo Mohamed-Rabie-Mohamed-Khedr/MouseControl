@@ -55,7 +55,8 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(240, 21);
+            label1.Location = new Point(343, 32);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(136, 36);
             label1.TabIndex = 0;
@@ -63,11 +64,12 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(402, 35);
+            numericUpDown1.Location = new Point(574, 54);
+            numericUpDown1.Margin = new Padding(4, 5, 4, 5);
             numericUpDown1.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(43, 23);
+            numericUpDown1.Size = new Size(61, 31);
             numericUpDown1.TabIndex = 1;
             numericUpDown1.Value = new decimal(new int[] { 11, 0, 0, 0 });
             // 
@@ -76,7 +78,8 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(240, 77);
+            label2.Location = new Point(343, 118);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(47, 36);
             label2.TabIndex = 2;
@@ -87,7 +90,8 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(240, 132);
+            label3.Location = new Point(343, 202);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(84, 36);
             label3.TabIndex = 3;
@@ -98,7 +102,8 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label4.ForeColor = SystemColors.Control;
-            label4.Location = new Point(240, 187);
+            label4.Location = new Point(343, 287);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(74, 36);
             label4.TabIndex = 4;
@@ -109,7 +114,8 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(240, 242);
+            label5.Location = new Point(343, 371);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(56, 36);
             label5.TabIndex = 5;
@@ -120,7 +126,8 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(240, 297);
+            label6.Location = new Point(343, 455);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(134, 36);
             label6.TabIndex = 6;
@@ -131,7 +138,8 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label7.ForeColor = SystemColors.Control;
-            label7.Location = new Point(240, 352);
+            label7.Location = new Point(343, 540);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(116, 36);
             label7.TabIndex = 7;
@@ -139,64 +147,71 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(402, 90);
+            textBox1.Location = new Point(574, 138);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(141, 31);
             textBox1.TabIndex = 8;
             textBox1.KeyDown += textBox_KeyDown;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(402, 145);
+            textBox2.Location = new Point(574, 222);
+            textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(100, 23);
+            textBox2.Size = new Size(141, 31);
             textBox2.TabIndex = 9;
             textBox2.KeyDown += textBox_KeyDown;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(402, 200);
+            textBox3.Location = new Point(574, 307);
+            textBox3.Margin = new Padding(4, 5, 4, 5);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(100, 23);
+            textBox3.Size = new Size(141, 31);
             textBox3.TabIndex = 10;
             textBox3.KeyDown += textBox_KeyDown;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(402, 255);
+            textBox4.Location = new Point(574, 391);
+            textBox4.Margin = new Padding(4, 5, 4, 5);
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
-            textBox4.Size = new Size(100, 23);
+            textBox4.Size = new Size(141, 31);
             textBox4.TabIndex = 11;
             textBox4.KeyDown += textBox_KeyDown;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(402, 310);
+            textBox5.Location = new Point(574, 475);
+            textBox5.Margin = new Padding(4, 5, 4, 5);
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
-            textBox5.Size = new Size(100, 23);
+            textBox5.Size = new Size(141, 31);
             textBox5.TabIndex = 12;
             textBox5.KeyDown += textBox_KeyDown;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(402, 365);
+            textBox6.Location = new Point(574, 560);
+            textBox6.Margin = new Padding(4, 5, 4, 5);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
-            textBox6.Size = new Size(100, 23);
+            textBox6.Size = new Size(141, 31);
             textBox6.TabIndex = 13;
             textBox6.KeyDown += textBox_KeyDown;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(402, 418);
+            textBox7.Location = new Point(574, 641);
+            textBox7.Margin = new Padding(4, 5, 4, 5);
             textBox7.Name = "textBox7";
             textBox7.ReadOnly = true;
-            textBox7.Size = new Size(100, 23);
+            textBox7.Size = new Size(141, 31);
             textBox7.TabIndex = 15;
             textBox7.KeyDown += textBox_KeyDown;
             // 
@@ -205,7 +220,8 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label8.ForeColor = SystemColors.Control;
-            label8.Location = new Point(240, 405);
+            label8.Location = new Point(343, 621);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(141, 36);
             label8.TabIndex = 14;
@@ -213,10 +229,11 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(402, 473);
+            textBox8.Location = new Point(574, 725);
+            textBox8.Margin = new Padding(4, 5, 4, 5);
             textBox8.Name = "textBox8";
             textBox8.ReadOnly = true;
-            textBox8.Size = new Size(100, 23);
+            textBox8.Size = new Size(141, 31);
             textBox8.TabIndex = 17;
             textBox8.KeyDown += textBox_KeyDown;
             // 
@@ -225,7 +242,8 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label9.ForeColor = SystemColors.Control;
-            label9.Location = new Point(240, 460);
+            label9.Location = new Point(343, 705);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(95, 36);
             label9.TabIndex = 16;
@@ -233,10 +251,11 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.SpringGreen;
-            button1.Location = new Point(692, 472);
+            button1.BackColor = Color.Blue;
+            button1.Location = new Point(989, 705);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(112, 54);
             button1.TabIndex = 18;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = false;
@@ -244,10 +263,10 @@
             // 
             // ControlRoom
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Desktop;
-            ClientSize = new Size(800, 516);
+            BackColor = SystemColors.GrayText;
+            ClientSize = new Size(1143, 791);
             Controls.Add(button1);
             Controls.Add(textBox8);
             Controls.Add(label9);
@@ -267,7 +286,9 @@
             Controls.Add(label2);
             Controls.Add(numericUpDown1);
             Controls.Add(label1);
-            Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            ForeColor = Color.Transparent;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ControlRoom";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Control Room";
