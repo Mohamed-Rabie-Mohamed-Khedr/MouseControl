@@ -64,9 +64,9 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(574, 54);
+            numericUpDown1.Location = new Point(574, 40);
             numericUpDown1.Margin = new Padding(4, 5, 4, 5);
-            numericUpDown1.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            numericUpDown1.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(61, 31);
@@ -251,7 +251,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Blue;
+            button1.BackColor = Color.ForestGreen;
             button1.Location = new Point(989, 705);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
@@ -265,7 +265,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GrayText;
+            BackColor = SystemColors.Highlight;
             ClientSize = new Size(1143, 791);
             Controls.Add(button1);
             Controls.Add(textBox8);

@@ -3,11 +3,12 @@ using Gma.System.MouseKeyHook;
 using System.Runtime.InteropServices;
 using MRC.Properties;
 using System.Media;
+using Microsoft.Win32;
 class Program
 {
     public static bool controlRoomIsRun;
     static byte speed = 11;
-    static bool isRun = true;
+    static bool isRun = true, isUp, isDown, isLeft, isRight;
     static Keys up = Keys.Up, down = Keys.Down, right = Keys.Right, left = Keys.Left, mouseLeft = Keys.Insert, mouseRight = Keys.End, dragAndDrop = Keys.RControlKey, onAndOff = Keys.LControlKey;
     static IKeyboardMouseEvents m_GlobalHook;
     static SoundPlayer sound;
@@ -25,23 +26,29 @@ class Program
 
     [DllImport("user32.dll")]
     static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
-
+    
     static void Main(string[] args)
     {
-        // ÊÔÛíá ÇáÈÑäÇãÌ Ýí ÇáÎáÝíÉ
-        m_GlobalHook = Hook.GlobalEvents();
-        m_GlobalHook.KeyUp += IsKeyUp;
-        m_GlobalHook.KeyDown += IsKeyDown;
-        ThreadPool.QueueUserWorkItem(state => {
-            Form1 form1 = new Form1();
-            form1.Show();
-            Thread.Sleep(5000);
-            form1.Dispose();
-        });
+        Mutex mutex = new Mutex(true, "0Mouse Manager", out bool isCreatedNew);
 
-        if (File.Exists("save.txt")) KeysUpdate();
-        
-        Application.Run();
+        if (!isCreatedNew) MessageBox.Show("The Program Is Run", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        else
+        {
+            m_GlobalHook = Hook.GlobalEvents();
+            m_GlobalHook.KeyUp += IsKeyUp;
+            m_GlobalHook.KeyDown += IsKeyDown;
+
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            if (registryKey.GetValue(Application.ProductName) == null)
+            {
+                registryKey.SetValue(Application.ProductName, Application.ExecutablePath);
+                MessageBox.Show("F3 To Settings", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            registryKey.Dispose();
+
+            if (File.Exists("save.txt")) KeysUpdate();
+            Application.Run();
+        }
     }
 
     public static void KeysUpdate()
@@ -56,16 +63,6 @@ class Program
         mouseLeft = (Keys)Enum.Parse(typeof(Keys), k[6]);
         dragAndDrop = (Keys)Enum.Parse(typeof(Keys), k[7]);
         onAndOff = (Keys)Enum.Parse(typeof(Keys), k[8]);
-    }
-    
-    static void IsKeyUp(object? sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == onAndOff)
-        {
-            isRun = !isRun;
-            sound = isRun ? new SoundPlayer(Resources.ON) : new SoundPlayer(Resources.off);
-            sound.Play();
-        }
     }
 
     static void IsKeyDown(object? sender, KeyEventArgs e)
@@ -94,27 +91,65 @@ class Program
                 e.Handled = true;
                 DragMouseLeft();
             }
+            else if (isUp && isRight)
+            {
+                e.Handled = true;
+                Move(speed, -speed);
+            }
+            else if (isUp && isLeft)
+            {
+                e.Handled = true;
+                Move(-speed, -speed);
+            }
+            else if (isDown && isRight)
+            {
+                e.Handled = true;
+                Move(speed, speed);
+            }
+            else if (isDown && isLeft)
+            {
+                e.Handled = true;
+                Move(-speed, speed);
+            }
             else if (e.KeyCode == up)
             {
                 e.Handled = true;
+                isUp = true;
                 Move(0, -speed);
             }
             else if (e.KeyCode == down)
             {
                 e.Handled = true;
+                isDown = true;
                 Move(0, speed);
             }
             else if (e.KeyCode == left)
             {
                 e.Handled = true;
+                isLeft = true;
                 Move(-speed, 0);
             }
             else if (e.KeyCode == right)
             {
                 e.Handled = true;
+                isRight = true;
                 Move(speed, 0);
             }
         }
+    }
+
+    static void IsKeyUp(object? sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == onAndOff)
+        {
+            isRun = !isRun;
+            sound = isRun ? new SoundPlayer(Resources.ON) : new SoundPlayer(Resources.off);
+            sound.Play();
+        }
+        else if (e.KeyCode == up) isUp = false;
+        else if (e.KeyCode == down) isDown = false;
+        else if (e.KeyCode == right) isRight = false;
+        else if (e.KeyCode == left) isLeft = false;
     }
 
     static void Move(int deltaX, int deltaY)
