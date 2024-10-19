@@ -288,6 +288,7 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             ForeColor = Color.Transparent;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Margin = new Padding(4, 5, 4, 5);
             Name = "ControlRoom";
             StartPosition = FormStartPosition.CenterScreen;

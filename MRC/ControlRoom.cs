@@ -21,7 +21,6 @@
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Icon = Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.FriendlyName + ".exe");
             string[] d = Program.RaedData();
             numericUpDown1.Value = int.Parse(d[0]);
             textBox1.Text = d[1];

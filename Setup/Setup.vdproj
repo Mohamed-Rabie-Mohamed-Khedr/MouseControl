@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_AF54E30078ED42DC973D0611DC0E45CA"
+        "MsmKey" = "8:_69CED4DA3CF944CEA40A476FEB4C3AEB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -122,7 +122,7 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AF54E30078ED42DC973D0611DC0E45CA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69CED4DA3CF944CEA40A476FEB4C3AEB"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\favicon.ico"
             "TargetName" = "8:favicon.ico"
@@ -330,7 +330,7 @@
             "Target" = "8:_EFEA3FCA5D9747A5B387FA092CD739F2"
             "Folder" = "8:_6B71A0543F5243EB8A5C4201CA38B8C9"
             "WorkingFolder" = "8:_C4A79F493E3740E6B9A0A1F4B88960ED"
-            "Icon" = "8:_AF54E30078ED42DC973D0611DC0E45CA"
+            "Icon" = "8:_69CED4DA3CF944CEA40A476FEB4C3AEB"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_737426A2A7144C5893CEB27D0CF328A4"
@@ -344,7 +344,7 @@
             "Target" = "8:_EFEA3FCA5D9747A5B387FA092CD739F2"
             "Folder" = "8:_A0848B1D509D440291B1C3A16809B16F"
             "WorkingFolder" = "8:_C4A79F493E3740E6B9A0A1F4B88960ED"
-            "Icon" = "8:_AF54E30078ED42DC973D0611DC0E45CA"
+            "Icon" = "8:_69CED4DA3CF944CEA40A476FEB4C3AEB"
             "Feature" = "8:"
             }
         }
